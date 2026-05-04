@@ -1,0 +1,66 @@
+# Lab Program - Vehicle, Car, Bike hierarchy
+
+class Vehicle:
+    def __init__(self):
+        self.make = None
+        self.year = None
+
+    def getdetails(self):
+        self.make = input("Enter Vehicle Make: ")
+        self.year = input("Enter Vehicle Year: ")
+
+    def display_info(self):
+        print("\n--- Vehicle Details ---")
+        print("Make :", self.make)
+        print("Year :", self.year)
+
+
+class Car(Vehicle):   # Inherits from Vehicle
+    def __init__(self):
+        super().__init__()
+        self.colour = None
+        self.model = None
+        self.capacity = None
+
+    def getCarDetails(self):
+        self.colour = input("Enter Car Colour: ")
+        self.model = input("Enter Car Model: ")
+        self.capacity = input("Enter Car Capacity: ")
+
+    def Display_car(self):
+        print("\n--- Car Details ---")
+        print("Colour  :", self.colour)
+        print("Model   :", self.model)
+        print("Capacity:", self.capacity)
+
+
+class Bike(Vehicle):   # Inherits from Vehicle
+    def __init__(self):
+        super().__init__()
+        self.type = None
+        self.mileage = None
+
+    def getBikeDetails(self):
+        self.type = input("Enter Bike Type: ")
+        self.mileage = input("Enter Bike Mileage: ")
+
+    def Display_bike(self):
+        print("\n--- Bike Details ---")
+        print("Type    :", self.type)
+        print("Mileage :", self.mileage)
+
+
+# Main Program
+print("Creating Car Object...")
+car = Car()
+car.getdetails()       # Vehicle details
+car.getCarDetails()    # Car details
+car.display_info()
+car.Display_car()
+
+print("\nCreating Bike Object...")
+bike = Bike()
+bike.getdetails()      # Vehicle details
+bike.getBikeDetails()  # Bike details
+bike.display_info()
+bike.Display_bike()
