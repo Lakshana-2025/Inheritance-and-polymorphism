@@ -1,0 +1,79 @@
+# Lab Program - Online Shopping Cart System
+
+class Product:
+    def __init__(self):
+        self.Id = None
+        self.name = None
+        self.price = None
+
+    def GetDetails(self):
+        self.Id = input("Enter Product Id: ")
+        self.name = input("Enter Product Name: ")
+        self.price = float(input("Enter Product Price: "))
+
+    def add_to_cart(self):
+        print(f"\nProduct '{self.name}' added to cart.")
+
+    def display(self):
+        print("\n--- Product Details ---")
+        print("Product Id   :", self.Id)
+        print("Product Name :", self.name)
+        print("Price        : Rs.", self.price)
+
+
+class Electronics(Product):   # Inherits from Product
+    def __init__(self):
+        super().__init__()
+        self.Brand = None
+        self.warranty = None
+
+    def GetElectronicsDetails(self):
+        self.Brand = input("Enter Brand: ")
+        self.warranty = input("Enter Warranty Period: ")
+
+    def Display(self):
+        super().display()
+        print("Brand        :", self.Brand)
+        print("Warranty     :", self.warranty)
+
+
+class Clothing(Product):   # Inherits from Product
+    def __init__(self):
+        super().__init__()
+        self.Type = None
+        self.size = None
+        self.color = None
+
+    def GetClothDetails(self):
+        self.Type = input("Enter Clothing Type: ")
+        self.size = input("Enter Size: ")
+        self.color = input("Enter Color: ")
+
+    def Display(self):
+        super().display()
+        print("Type         :", self.Type)
+        print("Size         :", self.size)
+        print("Color        :", self.color)
+
+
+# Main Program
+cart = []
+
+print("Adding Electronics Product...")
+e = Electronics()
+e.GetDetails()
+e.GetElectronicsDetails()
+e.add_to_cart()
+cart.append(e)
+
+print("\nAdding Clothing Product...")
+c = Clothing()
+c.GetDetails()
+c.GetClothDetails()
+c.add_to_cart()
+cart.append(c)
+
+# Display all products in cart (polymorphism in action)
+print("\n--- Shopping Cart ---")
+for item in cart:
+    item.Display()
