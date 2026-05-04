@@ -1,0 +1,67 @@
+# Lab Program - Multi-level Inheritance
+
+class Department:
+    def __init__(self):
+        self.Id = None
+        self.Name = None
+
+    def getdeptdetails(self):
+        self.Id = input("Enter Department Id: ")
+        self.Name = input("Enter Department Name: ")
+
+    def printdept(self):
+        print("\n--- Department Details ---")
+        print("Department Id   :", self.Id)
+        print("Department Name :", self.Name)
+
+
+class Course(Department):   # Inherits from Department
+    def __init__(self):
+        super().__init__()
+        self.Code = None
+        self.CName = None
+        self.Duration = None
+
+    def getcourse(self):
+        self.Code = input("Enter Course Code: ")
+        self.CName = input("Enter Course Name: ")
+        self.Duration = input("Enter Course Duration: ")
+
+    def printcourse(self):
+        print("\n--- Course Details ---")
+        print("Course Code     :", self.Code)
+        print("Course Name     :", self.CName)
+        print("Course Duration :", self.Duration)
+
+
+class Student(Course):   # Inherits from Course (and indirectly Department)
+    def __init__(self):
+        super().__init__()
+        self.Rollno = None
+        self.Sname = None
+        self.Mark = None
+
+    def getdetails(self):
+        self.Rollno = input("Enter Student Roll No: ")
+        self.Sname = input("Enter Student Name: ")
+        self.Mark = input("Enter Student Mark: ")
+
+    def printstudent(self):
+        print("\n--- Student Details ---")
+        print("Roll No         :", self.Rollno)
+        print("Student Name    :", self.Sname)
+        print("Mark            :", self.Mark)
+
+
+# Main Program
+s = Student()
+
+# Get details from user
+s.getdeptdetails()
+s.getcourse()
+s.getdetails()
+
+# Print all details
+s.printdept()
+s.printcourse()
+s.printstudent()
